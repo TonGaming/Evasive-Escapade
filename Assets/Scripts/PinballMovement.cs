@@ -5,7 +5,10 @@ using UnityEngine.InputSystem;
 
 public class PinballMovement : MonoBehaviour
 {
-    float moveAmount = 0.01f;
+    [SerializeField] float xValue = 1f;
+    [SerializeField] float zValue = 1f;
+
+
 
     private void Start()
     {
@@ -14,8 +17,20 @@ public class PinballMovement : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(0, moveAmount, 0);
+        MoveAround();
+
     }
 
+    void MoveAround()
+    {
+        float xAxis = Input.GetAxis("Horizontal") * xValue * Time.deltaTime;
+        float zAxis = Input.GetAxis("Vertical") * zValue * Time.deltaTime;
+
+        Vector3 pinballMovement = new Vector3(xAxis, 0, zAxis);
+
+        transform.position += pinballMovement;
+        //transform.Translate(xAxis, 0, zAxis);
+
+    }
 
 }
