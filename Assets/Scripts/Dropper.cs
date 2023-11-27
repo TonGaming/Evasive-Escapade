@@ -12,27 +12,29 @@ public class ObstaclesTiming : MonoBehaviour
     [SerializeField] float delayTime;
 
     Rigidbody cubeBombRigidbody;
-    
+    MeshRenderer cubeBombRenderer;
     
 
     private void Awake()
     {
         cubeBombRigidbody = GetComponent<Rigidbody>();
-
+        cubeBombRenderer = GetComponent<MeshRenderer>();
     }
 
     void Start()
     {
-        
+        cubeBombRigidbody.useGravity = false;
+        cubeBombRenderer.enabled = false;
     }
 
     void Update()
     {
         if (Time.time > delayTime)
         {
-            cubeBombRigidbody.mass = 1;
+            cubeBombRenderer.enabled = true;
+            cubeBombRigidbody.useGravity = true;
 
-            Invoke("ResetFallingBlocks", 5);
+            //Invoke("ResetFallingBlocks", 5);
 
         }
     }

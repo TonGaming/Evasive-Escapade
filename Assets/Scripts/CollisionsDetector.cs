@@ -21,9 +21,10 @@ public class CollisionsDetector : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player") )
+        if (collision.gameObject.CompareTag("Player") && wallsRenderer.gameObject.tag != "Hit")
         {
             wallsRenderer.material.color = Color.red;
+            wallsRenderer.gameObject.tag = "Hit";
         }
     }
 }
