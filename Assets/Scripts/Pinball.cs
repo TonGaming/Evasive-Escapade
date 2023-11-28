@@ -14,13 +14,13 @@ public class Pinball : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Walls") && playerLives > 1 && isDead == false)
+        if ((collision.gameObject.CompareTag("Walls") || collision.gameObject.CompareTag("OuterWalls")) && playerLives > 1 && isDead == false)
         {
             playerLives--;
             Debug.Log("You hit the wall");
             Debug.Log("You have hurt the ball");
         }
-        else if (collision.gameObject.CompareTag("Walls") && playerLives <= 1 && isDead == false)
+        else if ((collision.gameObject.CompareTag("Walls") || collision.gameObject.CompareTag("OuterWalls")) && playerLives <= 1 && isDead == false)
         {
             playerLives--;
             isDead = true;

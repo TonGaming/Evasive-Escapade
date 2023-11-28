@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstaclesTiming : MonoBehaviour
+public class Dropper : MonoBehaviour
 {
 
     //[SerializeField] int spawnTimeVariance = 1;

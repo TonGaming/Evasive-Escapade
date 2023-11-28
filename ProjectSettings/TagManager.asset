@@ -6,14 +6,15 @@ TagManager:
   tags:
   - Walls
   - Hit
+  - OuterWalls
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Walls
   - Water
   - UI
-  - 
+  - OuterWalls
   - 
   - 
   - 
